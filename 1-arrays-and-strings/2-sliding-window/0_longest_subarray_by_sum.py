@@ -4,6 +4,7 @@ TEST_CASES = [
     [[3,2,1,2,3,1], 5, 3],
     [[6,2,1,6,1,1,3,1], 6, 4],
     [[1,1,3,2,6,2,1,1,1,2,1], 8, 6],
+    [[3, 1, 2, 7, 4, 2, 1, 1, 5], 8, 4]
 ]
 
 def longest_subarray_by_sum(nums, sum):
@@ -25,5 +26,5 @@ def longest_subarray_by_sum(nums, sum):
 
 if __name__ == "__main__":
     for case in TEST_CASES:
-        print(longest_subarray_by_sum(case[0], case[1]) == case[2])
+        print(longest_subarray_by_sum(case[0], case[1]))
 
