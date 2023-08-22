@@ -29,6 +29,15 @@ def counting_elements(arr):
 
     return ans
 
+def counting_elements_optimized(arr):
+    nums = set(arr)
+    ans = 0
+    for num in arr:
+        if num + 1 in nums:
+            ans += 1
+
+    return ans
+
 if __name__ == "__main__":
     for case in TEST_CASES:
         print(counting_elements(case[0]) == case[1])
