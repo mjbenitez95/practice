@@ -23,6 +23,16 @@ def minimum_value_to_get_positive(nums):
 
     return abs(min(prefix_sum)) + 1
 
+def minimum_value_to_get_positive_optimized(nums):
+    minimum_value = running_total = 0
+
+    for num in nums:
+        running_total += num
+        minimum_value = min(minimum_value, running_total)
+
+    return abs(minimum_value) + 1
+
+
 if __name__ == "__main__":
     for case in TEST_CASES:
-        print(minimum_value_to_get_positive(case[0]) == case[1])
+        print(minimum_value_to_get_positive(case[0]) == case[1], minimum_value_to_get_positive_optimized(case[0]) == case[1])
