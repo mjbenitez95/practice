@@ -6,6 +6,10 @@
 
 TEST_CASES = [
     [[1, 2, 3, 4, 5], 1],
+    [[5, 4, 3, 2, 1], 3],
+    [[0, 0, 1, 0], 1],
+    [[0, 0, 0, 1], 0],
+    [[20, -10, -10, -5], 3],
 ]
 
 def num_ways_to_split(nums):
@@ -22,6 +26,25 @@ def num_ways_to_split(nums):
 
     return ans
 
+# use integers to track sums,
+# improving space complexity from O(n)
+# to O(1).
+def num_ways_to_split_two(nums):
+    total = 0
+    ans = 0
+
+    for i in range(len(nums)):
+        total += nums[i]
+
+    left = 0
+    for i in range(len(nums) - 1):
+        left += nums[i]
+        right = total - left
+        if left >= right:
+            ans += 1
+
+    return ans
+
 if __name__ == "__main__":
     for case in TEST_CASES:
-        print(num_ways_to_split(case[0]) == case[1])
+        print(num_ways_to_split(case[0]) == case[1], num_ways_to_split_two(case[0]) == case[1])
