@@ -41,7 +41,14 @@ def ransom_note(note, magazine):
 
     return len(note_letters) == 0
 
+def ransom_note_pythonic(note, magazine):
+    for letter in note:
+        if magazine.count(letter) < note.count(letter):
+            return False
+
+    return True
+
 
 if __name__=="__main__":
     for case in TEST_CASES:
-        print(ransom_note(case[0], case[1]) == case[2])
+        print(ransom_note(case[0], case[1]) == case[2], ransom_note_pythonic(case[0], case[1]) == case[2])
