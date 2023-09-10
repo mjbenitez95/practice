@@ -16,12 +16,13 @@ TEST_CASES = [
     ['leEeetcode', 'leetcode'],
     ['abBAcC', ''],
     ['s', 's'],
+    ['Pp', ''],
 ]
 
 def make_string_great(string):
     stack = []
     for char in string:
-        if stack and stack[-1] == char.lower() and char == stack[-1].upper():
+        if stack and char != stack[-1] and (stack[-1] == char.lower() or stack[-1] == char.upper()):
             stack.pop()
         else:
             stack.append(char)
